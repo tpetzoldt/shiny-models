@@ -5,6 +5,9 @@
 library("deSolve")
 library("dygraphs")
 
+## show header and footer with logos and links
+HEADERS <- FALSE
+
 LV <- function(t, state, parameters) {
   with (as.list(c(state, parameters)), {
     growth     <- a * Prey
@@ -62,7 +65,7 @@ server <- function(input, output) {
 }
 
 ui <- fluidPage(
-  #includeHTML("www/header_ihb_en_.html"), # <---
+  if (HEADERS) includeHTML("www/header_ihb_en_.html"), # <---
   headerPanel("Predator-Prey model"),
 
   #p("This application implements a Lotka-Volterra Predator-Prey model."),
@@ -95,7 +98,7 @@ dPred_dt   = g * grazing - mortality"),
       dygraphOutput("timeseries", height = "500px")
     )
   ),
-  #includeHTML("www/footer_en_.html"), # <---
+  if (HEADERS) includeHTML("www/footer_en_.html"), # <---
   lang = "en"
 )
 
