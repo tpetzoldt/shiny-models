@@ -77,7 +77,7 @@ ui <- fluidPage(
       lapply(L_parms, function(x) do.call("sliderInput", x)),
 
       h3("More information"),
-      a(href="https://github.com/tpetzoldt/", "Github page"), br(),
+      a(href="https://github.com/tpetzoldt/shiny-models", "Github page"), br(),
       a(href="https://tu-dresden.de/Members/thomas.petzoldt", "Author homepage"), br()
     ),
     mainPanel(
